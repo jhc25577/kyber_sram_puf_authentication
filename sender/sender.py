@@ -63,10 +63,10 @@ def client_program():
     time.sleep(3)
 
     # receive public key and nonce from server
-    msg = client_socket.recv(BUFFER_SIZE).decode()
-    PubKey, nonce = msg.split(SEPARATOR)
+    PubKey = client_socket.recv(BUFFER_SIZE).decode()
+    # PubKey, nonce = msg.split(SEPARATOR)
     print("From server public key: ", PubKey)
-    print("From server nonce: ", nonce)
+    # print("From server nonce: ", nonce)
 
     client_socket.send("Public key received".encode("utf-8"))
     msg = client_socket.recv(BUFFER_SIZE).decode("utf-8")
